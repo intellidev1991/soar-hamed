@@ -18,6 +18,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
   const pathname = usePathname();
 
   const getPageTitle = () => {
+    if (!pathname) return "Overview";
     const path = pathname.split("/").pop();
     if (!path || path === "dashboard") return "Overview";
     return path.charAt(0).toUpperCase() + path.slice(1);
